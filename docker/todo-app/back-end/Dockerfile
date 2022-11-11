@@ -1,6 +1,7 @@
-FROM node:14-alpine
+FROM node:14-alpine AS todobackend 
+# AS >> para passar nome para imagem
 EXPOSE 3001
-WORKDIR /todo-app
 ADD node_modules.tar.gz .
+WORKDIR /todo-app
 COPY . .
 CMD [ "npm", "start" ]
